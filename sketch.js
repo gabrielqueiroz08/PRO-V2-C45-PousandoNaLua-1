@@ -32,10 +32,10 @@ function draw()
   image(bg_img,0,0);
   push()
   fill(255);
-  text("Vertical Velocity: "+round(vy),800,75);
+  text("Velocidade Vertical: "+round(vy),800,75);
   pop();
 
-  //fall down
+  //descida
   vy +=g;
   lander.position.y+=vy;
   drawSprites();
