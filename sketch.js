@@ -24,6 +24,12 @@ function setup() {
   lander.scale = 0.1;
   lander.setCollider("rectangle", 100, 100, 200, 200)
 
+  database = firebase.database();
+
+  form = new Form();
+  form.display();
+
+
   ground = createSprite(100, 600, 2800, 20)
 
   rectMode(CENTER);
@@ -33,13 +39,7 @@ function setup() {
 function draw() {
   background(51);
   image(bg_inicial, 0,0);
-  if(keyCode = "C") {
-    image(bg_img, 0, 0);
-    push()
-    fill(255);
-    text("Velocidade Vertical: " + round(vy), 800, 75);
-    pop();
-  }
+  
 
   push()
   fill(255);
@@ -47,6 +47,13 @@ function draw() {
   " : ", 200, 75)
   pop();
 
+  if(keyCode = "C") {
+    bg_image();
+    push()
+    fill(255);
+    text("Velocidade Vertical: " + round(vy), 800, 75);
+    pop();
+  }
   
 
   //descida
@@ -66,4 +73,12 @@ function keyPressed() {
 
 function up() {
   vy = -3
+}
+
+function bg_image() {
+      image(bg_img, 0, 0);
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
